@@ -1,7 +1,6 @@
 
 import requests
 from bs4 import BeautifulSoup
-import time
 import os
 
 TOKEN = os.getenv("BOT_TOKEN")
@@ -33,13 +32,7 @@ def extraer_datos():
             if cuota >= 1.60 and prob >= 0.70:
                 ev = calcular_ev(prob, cuota)
                 if ev > 0:
-                    mensaje = f"⚾️ UNDER EV+ DETECTADO
-
-Jugador: {nombre}
-Mercado: {mercado}
-Prob: {prob*100:.1f}%
-Cuota: {cuota}
-EV: {ev:.2f}"
+                    mensaje = f"⚾️ UNDER EV+ DETECTADO\n\nJugador: {nombre}\nMercado: {mercado}\nProb: {prob*100:.1f}%\nCuota: {cuota}\nEV: {ev:.2f}"
                     enviar_mensaje(mensaje)
     except Exception as e:
         pass
